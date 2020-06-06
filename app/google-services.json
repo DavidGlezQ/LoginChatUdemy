@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "198986596144",
+    "firebase_url": "https://loginchat-4737b.firebaseio.com",
+    "project_id": "loginchat-4737b",
+    "storage_bucket": "loginchat-4737b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198986596144:android:dbddf95e4c2d8fcb8b12f5",
+        "android_client_info": {
+          "package_name": "com.example.loginchatudemy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198986596144-1bi4l9nvk57pb7f2c2aaijm12rts1c7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC2b0UoedP6qGhagC0azVwAGgOeFwFLrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198986596144-1bi4l9nvk57pb7f2c2aaijm12rts1c7n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
