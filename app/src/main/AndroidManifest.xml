@@ -20,7 +20,8 @@
         </activity>
         <activity
             android:name=".activities.LoginActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/NoPreview">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

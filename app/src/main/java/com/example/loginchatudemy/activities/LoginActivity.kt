@@ -17,13 +17,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        if (mAuth.currentUser == null) {
-            toast("nope")
-        } else {
-            toast("yep")
-            mAuth.signOut()
-        }
-
         //Evento para verificar el inicio de sesion del usuario.
         buttonSignIn.setOnClickListener {
             val email = editTextEmailLogIn.text.toString()
@@ -34,8 +27,14 @@ class LoginActivity : AppCompatActivity() {
         }
 
         //Eventos para el olvido de contraseña y crear cuenta.
-        textViewForgetPassword.setOnClickListener { goActivity<ForgotPasswordActivity>() }
-        buttonCreateAccount.setOnClickListener { goActivity<SignUpActivity>() }
+        textViewForgetPassword.setOnClickListener {
+            goActivity<ForgotPasswordActivity>()
+            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+        }
+        buttonCreateAccount.setOnClickListener {
+            goActivity<SignUpActivity>()
+            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+        }
     }
 
     //Metodo para verificar si la sesion del usuario esta activa o de lo contrario mandar un error.
