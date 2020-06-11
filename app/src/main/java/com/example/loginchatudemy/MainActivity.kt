@@ -2,8 +2,6 @@ package com.example.loginchatudemy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toolbar
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,4 +11,5 @@ class MainActivity : AppCompatActivity() {
         //Toolbar
         setSupportActionBar(findViewById(R.id.toolbar))
     }
+
 }
