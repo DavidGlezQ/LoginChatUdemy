@@ -46,7 +46,7 @@ fun Activity.isValidEmail(email: String): Boolean{
 
 fun Activity.isValidPassword(password: String): Boolean{
     //Creacion del pattern, este patron se divide en 5 bloques en el cual especifica que necesita el password, un numero, una letra minuscula, una mayuscula, un caracter especial y que sea minimo de 8.
-    val passwordPattern = "^(?=.*[0-9]) (?=.*[a-z]) (?=.*[A-Z]) (?=.*[@#$%^&+=!]) (?=\\S+$).{8,}$"
+    val passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$"
     val pattern = Pattern.compile(passwordPattern)
     return pattern.matcher(password).matches()
 }

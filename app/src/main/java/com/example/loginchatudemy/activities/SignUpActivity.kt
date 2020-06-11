@@ -28,11 +28,11 @@ class SignUpActivity : AppCompatActivity() {
         buttonSignUpCreate.setOnClickListener {
             val email = editTextEmail.text.toString()
             val password = editTextPassword.text.toString()
-            if (isValidEmailAndPassword(email, password)) {
+            val confirmPassword = editTextConfirmPassword.text.toString()
+            if (isValidEmail(email) && isValidPassword(password) && isValidConfirmPassword(password, confirmPassword)) {
                 signUpByEmail(email, password)
-                toast("Los datos introducidos han sido guardados con exito.")
             } else {
-                toast("Ha ocurrido un error inesperado, vuelva a intentar.")
+                toast("Confirma que todos los datos sean correctos")
             }
         }
 
@@ -51,24 +51,20 @@ class SignUpActivity : AppCompatActivity() {
     }
         //Metodo para crear al usuario.
         private fun signUpByEmail(email: String, password: String) {
-            mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this) { task ->
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        toast("Un email ha sido enviado a tu correo, porfavor confirma antes de entrar.")
-                        goActivity<LoginActivity> {
-                            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        //Comprobacion por medio del email.
+                        mAuth.currentUser!!.sendEmailVerification().addOnCompleteListener(this){
+                            toast("Un email ha sido enviado a tu correo, porfavor confirma para poder entrar")
+                            goActivity<LoginActivity> {
+                                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            }
+                            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                         }
-                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                     } else {
-                        toast("Un error inesperado ocurrio, porfavor vuelva a intentarlo.")
+                        toast("Un error inesperado ocurrio, porfavor vuelva a intentarlo")
                     }
                 }
         }
-    //Metodo para validar si los datos son correctos
-    private fun isValidEmailAndPassword(email: String, password: String): Boolean {
-        return !email.isNullOrEmpty() &&
-                !password.isNullOrEmpty() &&
-                password == editTextConfirmPassword.text.toString()
-    }
 }
 
