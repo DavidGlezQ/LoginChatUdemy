@@ -8,22 +8,30 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 
 class ForgotPasswordActivity : AppCompatActivity() {
-
+    //RECUPERAR CONTRASEÑA POR MEDIO DEL CORREO
+    //INICIO VARIABLES
     private val mAuth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
+    //FIN VARIABLES
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
 
+        //INICIO EVENTOS ONCLICK, VALIDACIONES PARA EL CORREO
+        //INICIO VALIDACION PARA EL CORREO
         editTextEmailForgot.validate {
-            editTextEmailForgot.error = if (isValidEmail(it)) null else "El email no es valido"
+            editTextEmailForgot.error = if (isValidEmail(it)) null else "El correo no es valido"
         }
+        //FIN VALIDACION PARA EL CORREO
 
+        //INICIO REGRESAR AL LOGIN
         buttonGoLoginForgot.setOnClickListener{
             goActivity<LoginActivity>()
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
+        //FIN REGRESAR AL LOGIN
 
+        //INICIO BOTON PARA RECUPERAR CONTRASEÑA
         buttonForgot.setOnClickListener {
             val email = editTextEmailForgot.text.toString()
             if (isValidEmail(email)) {
@@ -35,8 +43,10 @@ class ForgotPasswordActivity : AppCompatActivity() {
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                 }
             } else {
-                toast("Porfavor asegurate de que el email es correcto")
+                toast("Por favor asegúrate de que el email es correcto")
             }
         }
+        //FIN BOTON PARA RECUPERAR CONTRASEÑA
     }
+    //FIN EVENTOS ONCLICK, VALIDACIONES PARA EL CORREO
 }
