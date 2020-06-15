@@ -1,9 +1,10 @@
-package com.example.loginchatudemy
+package com.example.loginchatudemy.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.loginchatudemy.activities.LoginActivity
+import com.example.loginchatudemy.R
+import com.example.loginchatudemy.goActivity
+import com.example.loginchatudemy.toast
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
