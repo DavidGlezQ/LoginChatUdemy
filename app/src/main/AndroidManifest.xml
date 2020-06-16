@@ -20,10 +20,14 @@
         </activity>
         <activity
             android:name=".activities.ForgotPasswordActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
         <activity
             android:name=".activities.SignUpActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/NoPreview"
