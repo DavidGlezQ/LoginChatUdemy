@@ -28,6 +28,8 @@
             android:textSize="@dimen/login_text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="15dp"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <EditText
@@ -45,6 +47,8 @@
             android:textSize="@dimen/login_text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:drawableLeft="@drawable/ic_password"
+            android:drawablePadding="15dp"
             app:layout_constraintTop_toBottomOf="@+id/editTextEmailLogIn" />
 
         <TextView
@@ -55,6 +59,7 @@
             android:layout_marginBottom="32dp"
             android:text="@string/login_forgot_password"
             android:textColor="@color/colorSecondaryText"
+            android:textSize="@dimen/forgot_text_size"
             app:layout_constraintBottom_toTopOf="@+id/buttonLogInGoogle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +67,7 @@
 
         <Button
             android:id="@+id/buttonLogInGoogle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/login_button_height"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
@@ -71,6 +76,11 @@
             android:text="@string/login_sign_in_google"
             android:textColor="@color/colorPrimaryText"
             app:layout_constraintBottom_toTopOf="@+id/buttonCreateAccount"
+            android:drawableRight="@drawable/google"
+            android:drawablePadding="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -91,9 +101,9 @@
             android:id="@+id/buttonSignIn"
             android:layout_width="match_parent"
             android:layout_height="@dimen/login_button_xl_height"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="64dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginEnd="64dp"
             android:background="@drawable/button_ripple_bg"
             android:text="@string/login_sign_in"
             android:textColor="@color/colorPrimaryText"
@@ -114,11 +124,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/usuario" />
 
-
-        <!--<com.google.android.gms.common.SignInButton
+      <!--  <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />-->
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="192dp"
+            tools:layout_editor_absoluteY="442dp" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

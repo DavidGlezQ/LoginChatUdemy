@@ -7,7 +7,7 @@
     <string name="login_sign_in">Iniciar sesión</string>
     <string name="login_sign_up">Crear cuenta</string>
     <string name="login_reset_password">Recuperar Contraseña</string>
-    <string name="login_sign_in_google">Iniciar sesión con Google </string>
+    <string name="login_sign_in_google">Iniciar con Google </string>
     <string name="login_forgot_password">Recuperar Contraseña</string>
     <string name="login_create_account">Crear una cuenta</string>
     <string name="login_go_login">Regresar al inicio de sesión</string>

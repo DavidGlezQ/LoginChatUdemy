@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ripple xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="@color/colorGooglePlusDark"
     tools:targetApi="lollipop">
 
@@ -11,6 +11,7 @@
     </item>
 
     <item android:id="@android:id/background"
-        android:drawable="@color/colorGooglePlus"/>
-
+        android:drawable="@drawable/button_google_corners">
+    </item>
 </ripple>
+

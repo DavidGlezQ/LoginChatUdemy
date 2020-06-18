@@ -34,6 +34,4 @@
             android:layout_height="wrap_content"
             android:text="signout" />
     </androidx.viewpager.widget.ViewPager>
-
-
 </RelativeLayout>

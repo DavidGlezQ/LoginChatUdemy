@@ -29,6 +29,8 @@
             app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="15dp"
             android:focusableInTouchMode="true"/>
 
         <EditText
@@ -45,6 +47,8 @@
             android:paddingRight="@dimen/login_edit_text_space"
             android:textSize="@dimen/login_text_size"
             app:layout_constraintBottom_toTopOf="@+id/editTextConfirmPassword"
+            android:drawableLeft="@drawable/ic_password"
+            android:drawablePadding="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -62,6 +66,8 @@
             android:paddingRight="@dimen/login_edit_text_space"
             android:textSize="@dimen/login_text_size"
             app:layout_constraintBottom_toTopOf="@+id/buttonSignUpCreate"
+            android:drawableLeft="@drawable/ic_confirm_password"
+            android:drawablePadding="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -70,8 +76,8 @@
             android:id="@+id/buttonSignUpCreate"
             android:layout_width="match_parent"
             android:layout_height="@dimen/login_button_xl_height"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="64dp"
             android:layout_marginBottom="200dp"
             android:background="@drawable/button_ripple_bg"
             android:text="@string/login_sign_up"
