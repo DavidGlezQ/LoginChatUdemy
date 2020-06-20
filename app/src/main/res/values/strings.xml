@@ -16,4 +16,7 @@
     <string name="bottom_navigation_chat">Chat</string>
     <string name="bottom_navigation_rates">Rates</string>
     <string name="bottom_navigation_info">Info</string>
+
+    <!--FragmentChat-->
+    <string name="chat_textHint_message">Escribe un mensaje...</string>
 </resources>
