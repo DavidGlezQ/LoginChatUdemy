@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.fragment_chat_item_left.view.*
 import kotlinx.android.synthetic.main.fragment_chat_item_right.view.*
 import java.text.SimpleDateFormat
 
+
 class ChatAdapter(val items: List<Message>, val userId: String): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     //INICIO VARIABLES
@@ -64,5 +65,3 @@ class ChatAdapter(val items: List<Message>, val userId: String): RecyclerView.Ad
     }
     //FIN VIEWHOLDERS
 }
-
-

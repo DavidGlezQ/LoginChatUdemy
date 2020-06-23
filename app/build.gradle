@@ -15,6 +15,7 @@ android {
 
         vectorDrawables.useSupportLibrary = true // Para aceptar diferentes colores en los vectores
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled = true
     }
 
     buildTypes {
@@ -40,6 +41,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.3.0'
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
     implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+    implementation 'com.google.firebase:firebase-firestore:21.4.3'
+
 
     implementation "com.android.support:design:$kotlin_version"
 

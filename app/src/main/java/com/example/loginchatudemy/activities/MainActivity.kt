@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         setUpBottomNavigationBar()
         SignOut()
         //FIN LLAMADO DE FUNCIONES
-        mAuth.signOut()
+        //mAuth.signOut()
 
 
     }
