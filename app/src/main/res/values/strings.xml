@@ -19,4 +19,7 @@
 
     <!--FragmentChat-->
     <string name="chat_textHint_message">Escribe un mensaje...</string>
+
+    <string name="info_label_message">Mensajes totales</string>
+    <string name="info_label_no_name">Nombre no disponible</string>
 </resources>

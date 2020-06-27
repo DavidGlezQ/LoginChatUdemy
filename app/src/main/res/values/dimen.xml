@@ -8,4 +8,5 @@
     <dimen name="login_text_xl_size">18sp</dimen>
     <dimen name="login_text_size">15sp</dimen>
     <dimen name="forgot_text_size">17sp</dimen>
+    <dimen name="chatSend_text_size">15sp</dimen>
 </resources>

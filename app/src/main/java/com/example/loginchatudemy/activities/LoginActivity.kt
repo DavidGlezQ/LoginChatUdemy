@@ -75,7 +75,9 @@ class LoginActivity : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
                 if (mAuth.currentUser!!.isEmailVerified){
-                    toast("La sesión del usuario esta actualmente activa")
+                    goActivity<MainActivity> {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
                 } else {
                     toast("Antes de entrar debes de confirmar tu correo")
                 }

@@ -50,8 +50,13 @@ class ChatAdapter(val items: List<Message>, val userId: String): RecyclerView.Ad
         fun bind(message: Message) = with(itemView) {
             textViewMessageRight.text = message.message
             textViewTimeRight.text = SimpleDateFormat("hh:mm").format(message.sendAt)
-            Picasso.with(context).load(message.profileImageUrl).resize(100, 100)
-                .centerCrop().transform(CircleTransform()).into(imageProfileRight)
+            if(message.profileImageUrl.isEmpty()) {
+                Picasso.get().load(R.drawable.ic_person_profile).resize(100, 100)
+                    .centerCrop().transform(CircleTransform()).into(imageProfileRight)
+            } else {
+                Picasso.get().load(message.profileImageUrl).resize(100, 100)
+                    .centerCrop().transform(CircleTransform()).into(imageProfileRight)
+            }
         }
     }
 
@@ -59,8 +64,13 @@ class ChatAdapter(val items: List<Message>, val userId: String): RecyclerView.Ad
         fun bind(message: Message) = with(itemView) {
             textViewMessageLeft.text = message.message
             textViewTimeLeft.text = SimpleDateFormat("hh:mm").format(message.sendAt)
-            Picasso.with(context).load(message.profileImageUrl).resize(100, 100)
-                .centerCrop().transform(CircleTransform()).into(imageProfileLeft)
+            if(message.profileImageUrl.isEmpty()) {
+                Picasso.get().load(R.drawable.ic_person_profile).resize(100, 100)
+                    .centerCrop().transform(CircleTransform()).into(imageProfileLeft)
+            } else {
+                Picasso.get().load(message.profileImageUrl).resize(100, 100)
+                    .centerCrop().transform(CircleTransform()).into(imageProfileLeft)
+            }
         }
     }
     //FIN VIEWHOLDERS

@@ -28,10 +28,5 @@
         android:layout_below="@id/toolbar"
         android:layout_above="@+id/bottomNavigationView">
 
-        <Button
-            android:id="@+id/buttonSignOut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="signout" />
     </androidx.viewpager.widget.ViewPager>
 </RelativeLayout>

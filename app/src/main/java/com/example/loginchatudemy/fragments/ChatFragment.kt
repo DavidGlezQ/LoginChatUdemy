@@ -13,12 +13,12 @@ import com.example.loginchatudemy.models.Message
 import com.example.loginchatudemy.toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.*
 import kotlinx.android.synthetic.main.fragment_chat.*
 import kotlinx.android.synthetic.main.fragment_chat.view.*
 import kotlinx.android.synthetic.main.fragment_chat.view.editTextMessage
 import java.util.*
+import java.util.EventListener
 import kotlin.collections.ArrayList
 
 class ChatFragment : Fragment() {
@@ -31,6 +31,7 @@ class ChatFragment : Fragment() {
     private lateinit var currentUser: FirebaseUser
     private val store: FirebaseFirestore = FirebaseFirestore.getInstance() //Obtenemos la instancia del servicio
     private lateinit var chatDBRef: CollectionReference
+    private var chatSubscription: ListenerRegistration? = null
     //FIN VARIABLES
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -41,6 +42,7 @@ class ChatFragment : Fragment() {
         sepUpCurrentUser()
         setUpRecyclerView()
         setUpChatBtn()
+        subscribeToChatMessage()
         //FIN LLAMADA DE METODOS
         return _view
     }
@@ -64,7 +66,8 @@ class ChatFragment : Fragment() {
         _view.buttonSend.setOnClickListener {
             val messageText = editTextMessage.text.toString()
             if (messageText.isNotEmpty()) {
-                val message = Message(currentUser.uid, messageText, currentUser.photoUrl.toString(), Date())
+                val photo = currentUser.photoUrl?.let { currentUser.photoUrl.toString() } ?: run {""}
+                val message = Message(currentUser.uid, messageText, photo, Date())
                 saveMessage(message)
                 _view.editTextMessage.setText("")
             }
@@ -76,13 +79,38 @@ class ChatFragment : Fragment() {
         newMessage["message"] = message.message
         newMessage["profileImageUrl"] = message.profileImageUrl
         newMessage["sendAt"] = message.sendAt
-
         chatDBRef.add(newMessage).addOnCompleteListener {
             activity!!.toast("Mensaje enviado")
         }
             .addOnFailureListener {
                 activity!!.toast("Error al mandar el mensaje")
             }
+    }
+    private fun subscribeToChatMessage(){
+        chatSubscription = chatDBRef
+            .orderBy("sendAt", Query.Direction.DESCENDING)
+            .limit(100)
+            .addSnapshotListener(object : EventListener, com.google.firebase.firestore.EventListener<QuerySnapshot> {
+            override fun onEvent(snapshot: QuerySnapshot?, exception: FirebaseFirestoreException?) {
+                exception?.let {
+                    activity!!.toast("Exception!")
+                    return
+                }
+
+                snapshot?.let {
+                    messageList.clear()
+                    val messages = it.toObjects(Message::class.java)
+                    messageList.addAll(messages.asReversed())
+                    adapter.notifyDataSetChanged()
+                    _view.recyclerView.smoothScrollToPosition(messageList.size)
+
+                }
+            }
+        })
+    }
+    override fun onDestroy() {
+        chatSubscription?.remove()
+        super .onDestroy()
     }
     //FIN METODOS/FUNCIONES
 }

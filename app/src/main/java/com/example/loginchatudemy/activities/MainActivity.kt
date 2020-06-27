@@ -29,13 +29,12 @@ class MainActivity : AppCompatActivity() {
         //INICIO LLAMADO DE FUNCIONES
         setUpViewPager(getPagerAdapter())
         setUpBottomNavigationBar()
-        SignOut()
         //FIN LLAMADO DE FUNCIONES
         //mAuth.signOut()
 
 
     }
-    //INICIO CERRAR SESIÓN CON GOOGLE
+    /*//INICIO CERRAR SESIÓN CON GOOGLE
     private fun SignOut(){
         buttonSignOut.setOnClickListener {
             buttonSignOut.isEnabled = false
@@ -50,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    //FIN CERRAR SESIÓN CON GOOGLE
+    //FIN CERRAR SESIÓN CON GOOGLE*/
 
     //INICIO METODOS PARA EL VIEWPAGER ADAPTER
     private fun getPagerAdapter(): PagerAdapter {
