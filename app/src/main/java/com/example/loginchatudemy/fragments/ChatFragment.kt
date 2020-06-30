@@ -108,9 +108,9 @@ class ChatFragment : Fragment() {
             }
         })
     }
-    override fun onDestroy() {
+    override fun onDestroyView() {
         chatSubscription?.remove()
-        super .onDestroy()
+        super.onDestroyView()
     }
     //FIN METODOS/FUNCIONES
 }
