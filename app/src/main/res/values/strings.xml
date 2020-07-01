@@ -22,4 +22,6 @@
 
     <string name="info_label_message">Mensajes totales</string>
     <string name="info_label_no_name">Nombre no disponible</string>
+    
+    <string name="option_menu_log_out">Cerrar Sesión</string>
 </resources>

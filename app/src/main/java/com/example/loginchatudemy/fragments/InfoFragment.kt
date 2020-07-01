@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.loginchatudemy.R
+import com.example.loginchatudemy.models.TotalMessagesEvent
 import com.example.loginchatudemy.toast
 import com.example.loginchatudemy.utils.CircleTransform
+import com.example.loginchatudemy.utils.RxBus
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.*
@@ -33,7 +35,9 @@ class InfoFragment : Fragment() {
         setUpCurrentUser()
         setUpCurrentUserInfoUI()
         //Firebase Style, Mensajes totales.
-        subscribeToTotalMessageFirebaseStyle()
+        //subscribeToTotalMessageFirebaseStyle()
+        //Event bus reactive style, Mensajes totales.
+        subscribeToTotalMessageEventBusReactiveStyle()
         return _view
     }
 
@@ -67,7 +71,11 @@ class InfoFragment : Fragment() {
             }
         })
     }
-
+    private fun subscribeToTotalMessageEventBusReactiveStyle(){
+        RxBus.listen(TotalMessagesEvent::class.java).subscribe {
+            _view.textViewInfoTotalMessages.text = "${it.total}"
+        }
+    }
     override fun onDestroyView() {
         chatSubscription?.remove()
         super.onDestroyView()

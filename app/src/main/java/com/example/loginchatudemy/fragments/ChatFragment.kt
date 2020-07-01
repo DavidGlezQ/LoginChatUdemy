@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.loginchatudemy.R
 import com.example.loginchatudemy.adapter.ChatAdapter
 import com.example.loginchatudemy.models.Message
+import com.example.loginchatudemy.models.TotalMessagesEvent
 import com.example.loginchatudemy.toast
+import com.example.loginchatudemy.utils.RxBus
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.*
@@ -103,6 +105,7 @@ class ChatFragment : Fragment() {
                     messageList.addAll(messages.asReversed())
                     adapter.notifyDataSetChanged()
                     _view.recyclerView.smoothScrollToPosition(messageList.size)
+                    RxBus.publish(TotalMessagesEvent(messageList.size))
 
                 }
             }

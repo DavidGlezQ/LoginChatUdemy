@@ -1,7 +1,9 @@
 package com.example.loginchatudemy.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.viewpager.widget.ViewPager
 import com.example.loginchatudemy.R
@@ -30,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         setUpViewPager(getPagerAdapter())
         setUpBottomNavigationBar()
         //FIN LLAMADO DE FUNCIONES
-        //mAuth.signOut()
 
 
     }
@@ -59,10 +60,9 @@ class MainActivity : AppCompatActivity() {
         adapter.addAFragment(ChatFragment())
         return adapter
     }
-
     private fun setUpViewPager(adapter: PagerAdapter){
         ViewPager.adapter = adapter
-        //ViewPager.offscreenPageLimit = adapter.count
+        ViewPager.offscreenPageLimit = adapter.count//RxBus para y el contador de totalmessages, onDestroy
         ViewPager.addOnPageChangeListener(object: ViewPager.OnPageChangeListener{
             override fun onPageScrollStateChanged(state: Int) {}
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
@@ -77,7 +77,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
     private fun setUpBottomNavigationBar(){
         bottomNavigationView.setOnNavigationItemSelectedListener{ item ->
             when(item.itemId) {
@@ -87,6 +86,23 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.general_option_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.menu_log_out -> {
+                FirebaseAuth.getInstance().signOut()
+                goActivity<LoginActivity> {
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                }
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
     //FIN METODOS PARA EL VIEWPAGER ADAPTER
 }
