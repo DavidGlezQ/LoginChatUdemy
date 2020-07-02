@@ -24,4 +24,10 @@
     <string name="info_label_no_name">Nombre no disponible</string>
     
     <string name="option_menu_log_out">Cerrar Sesión</string>
+
+    <!--Rates-->
+    <string name="dialog_title">Opinar sobre la App!</string>
+    <string name="dialog_edit_text_hint">Danos tu opinion</string>
+    <string name="dialog_ok">Opinar</string>
+    <string name="dialog_cancel">Cancelar</string>
 </resources>

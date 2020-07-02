@@ -35,23 +35,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    /*//INICIO CERRAR SESIÓN CON GOOGLE
-    private fun SignOut(){
-        buttonSignOut.setOnClickListener {
-            buttonSignOut.isEnabled = false
-            AuthUI.getInstance().signOut(this).addOnSuccessListener {
-                goActivity<LoginActivity>()
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-                toast("Hasta pronto")
-                finish()
-            }.addOnFailureListener{
-                buttonSignOut.isEnabled = true
-                toast("Error")
-            }
-        }
-    }
-    //FIN CERRAR SESIÓN CON GOOGLE*/
-
     //INICIO METODOS PARA EL VIEWPAGER ADAPTER
     private fun getPagerAdapter(): PagerAdapter {
         val adapter = PagerAdapter(supportFragmentManager)
@@ -88,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //INICIO METODOS PARA LOG OUT
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.general_option_menu, menu)
         return super.onCreateOptionsMenu(menu)
@@ -101,8 +85,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
         return super.onOptionsItemSelected(item)
     }
+    //FIN METODOS PARA LOG OUT
     //FIN METODOS PARA EL VIEWPAGER ADAPTER
 }
