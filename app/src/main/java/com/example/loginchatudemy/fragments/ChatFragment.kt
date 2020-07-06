@@ -98,7 +98,6 @@ class ChatFragment : Fragment() {
                     activity!!.toast("Exception!")
                     return
                 }
-
                 snapshot?.let {
                     messageList.clear()
                     val messages = it.toObjects(Message::class.java)
