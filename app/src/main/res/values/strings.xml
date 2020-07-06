@@ -11,6 +11,7 @@
     <string name="login_forgot_password">Recuperar Contraseña</string>
     <string name="login_create_account">Crear una cuenta</string>
     <string name="login_go_login">Regresar al inicio de sesión</string>
+    <string name="Login_create_account">¿Aún no tienes una cuenta?</string>
 
     <!-- Bottom Navigation View -->
     <string name="bottom_navigation_chat">Chat</string>
@@ -20,7 +21,7 @@
     <!--FragmentChat-->
     <string name="chat_textHint_message">Escribe un mensaje...</string>
 
-    <string name="info_label_message">Mensajes totales</string>
+    <string name="info_label_message">Mensajes totales:</string>
     <string name="info_label_no_name">Nombre no disponible</string>
     
     <string name="option_menu_log_out">Cerrar Sesión</string>

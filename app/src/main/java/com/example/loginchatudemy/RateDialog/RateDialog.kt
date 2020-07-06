@@ -42,7 +42,6 @@ class RateDialog: DialogFragment(){
                 }
             }
             .setNegativeButton(getString(R.string.dialog_cancel)){ _, _ ->
-                activity!!.toast("Presiona cancelar")
             }
             .create()
     }

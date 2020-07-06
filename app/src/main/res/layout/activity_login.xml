@@ -55,12 +55,10 @@
             android:id="@+id/textViewForgetPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginTop="24dp"
             android:text="@string/login_forgot_password"
             android:textColor="@color/colorSecondaryText"
             android:textSize="@dimen/forgot_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/buttonLogInGoogle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonSignIn" />
@@ -70,19 +68,20 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/login_button_height"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
             android:background="@drawable/button_ripple_google"
-            android:text="@string/login_sign_in_google"
-            android:textColor="@color/colorPrimaryText"
-            app:layout_constraintBottom_toTopOf="@+id/buttonCreateAccount"
             android:drawableRight="@drawable/google"
             android:drawablePadding="15dp"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
 
+            android:text="@string/login_sign_in_google"
+            android:textColor="@color/colorPrimaryText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewForgetPassword" />
 
         <Button
             android:id="@+id/buttonCreateAccount"
@@ -124,12 +123,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/usuario" />
 
-      <!--  <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="192dp"
-            tools:layout_editor_absoluteY="442dp" />-->
+            android:layout_marginBottom="16dp"
+            android:text="@string/Login_create_account"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="@dimen/forgot_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/buttonCreateAccount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
