@@ -55,7 +55,7 @@ class InfoFragment : Fragment() {
                 Picasso.get().load(currentUser.photoUrl).resize(300, 300)
                     .centerCrop().transform(CircleTransform()).into(_view.imageViewInfoAvatar)
         } ?: run {
-            Picasso.get().load(R.drawable.ic_person_profile).resize(300, 300)
+            Picasso.get().load(R.drawable.usuario).resize(300, 300)
                 .centerCrop().transform(CircleTransform()).into(_view.imageViewInfoAvatar)
         }
     }

@@ -51,7 +51,7 @@ class ChatAdapter(val items: List<Message>, val userId: String): RecyclerView.Ad
             textViewMessageRight.text = message.message
             textViewTimeRight.text = SimpleDateFormat("hh:mm").format(message.sendAt)
             if(message.profileImageUrl.isEmpty()) {
-                Picasso.get().load(R.drawable.ic_person_profile).resize(100, 100)
+                Picasso.get().load(R.drawable.usuario).resize(100, 100)
                     .centerCrop().transform(CircleTransform()).into(imageProfileRight)
             } else {
                 Picasso.get().load(message.profileImageUrl).resize(100, 100)
@@ -65,7 +65,7 @@ class ChatAdapter(val items: List<Message>, val userId: String): RecyclerView.Ad
             textViewMessageLeft.text = message.message
             textViewTimeLeft.text = SimpleDateFormat("hh:mm").format(message.sendAt)
             if(message.profileImageUrl.isEmpty()) {
-                Picasso.get().load(R.drawable.ic_person_profile).resize(100, 100)
+                Picasso.get().load(R.drawable.usuario).resize(100, 100)
                     .centerCrop().transform(CircleTransform()).into(imageProfileLeft)
             } else {
                 Picasso.get().load(message.profileImageUrl).resize(100, 100)
